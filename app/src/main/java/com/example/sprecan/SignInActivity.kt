@@ -16,7 +16,7 @@ class SignInActivity : AppCompatActivity() {
         val signUpHere_button = findViewById<Button>(R.id.signUp_button)
 
         signUpHere_button.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, SettingsPage::class.java)
             startActivity(intent)
             finish()
         }
