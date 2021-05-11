@@ -61,7 +61,9 @@ open class AuthenticationActivity : BaseActivity() {
                                     if(task.isSuccessful){
                                         val firebaseUser: FirebaseUser = task.result!!.user!!
 
-                                        showErrorSnackBar("Succesfully logged in user id ${firebaseUser.uid}", false)
+//                                        showErrorSnackBar("Succesfully logged in user id ${firebaseUser.uid}", false)
+
+                                        loginUserSuccess(firebaseUser.uid)
 
                                     } else {
                                         showErrorSnackBar(task.exception!!.message.toString(), true)
@@ -83,6 +85,14 @@ open class AuthenticationActivity : BaseActivity() {
         startActivity(intent)
         finish()
         //TODO: SharedPreferences
+    }
+
+    fun loginUserSuccess(uid: String){
+        //TODO: Sharepreferences
+        val intent = Intent(this, ChatPage::class.java)
+        intent.putExtra(Constants.LOGGED_IN_ID, uid) //sending activity
+        startActivity(intent)
+        finish()
     }
 
 
