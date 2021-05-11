@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
         <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".ChatPage"></activity>
+        <activity android:name=".ChatPage"
+            android:theme="@style/Theme.Sprecan"></activity>
         <activity android:name=".SettingsPage"></activity>
         <activity
             android:name=".SignInActivity"

@@ -1,7 +1,9 @@
 package com.example.sprecan.utils
 
 import android.media.session.MediaSessionManager
+import android.widget.Toast
 import com.example.sprecan.AuthenticationActivity
+import com.example.sprecan.ChatPage
 import com.example.sprecan.model.User
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -26,4 +28,26 @@ class Firestore {
                     activity.showErrorSnackBar("Error while registering user", true)
                 }
     }
+
+    fun getUserInfoById(activity: ChatPage, uid: String){
+        db.collection(Constants.USERS)
+                .document(uid)
+                .get()
+                .addOnSuccessListener { document ->
+                    if(document != null) {
+
+                        val user = document.toObject(User::class.java)!!
+
+                        activity.setUserInfo(user)
+
+                    } else {
+                        Toast.makeText(activity, "error loading user info", Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(activity, exception.message, Toast.LENGTH_SHORT).show()
+                }
+    }
+
 }
