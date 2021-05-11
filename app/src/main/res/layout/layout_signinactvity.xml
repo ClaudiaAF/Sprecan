@@ -38,6 +38,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="49dp"
+            android:id="@+id/et_loginEmail"
+            android:inputType="textEmailAddress"
             android:textSize="14sp"
             app:boxStrokeColor="@color/dark_blue" />
 
@@ -62,6 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textSize="14sp"
+            android:inputType="textPassword"
+            android:id="@+id/et_loginPassword"
             app:boxStrokeColor="@color/dark_blue" />
     </com.google.android.material.textfield.TextInputLayout>
 

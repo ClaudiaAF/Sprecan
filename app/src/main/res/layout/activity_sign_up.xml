@@ -38,6 +38,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/et_email"
             android:layout_height="50dp"
             android:textSize="14sp"
             app:boxStrokeColor="@color/dark_blue" />
@@ -62,6 +63,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/et_password"
             android:layout_height="50dp"
             android:textSize="14sp"
             app:boxStrokeColor="@color/dark_blue" />
@@ -133,6 +135,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/et_name"
             android:layout_height="50dp"
             android:textSize="14sp"
             app:boxStrokeColor="@color/dark_blue" />
