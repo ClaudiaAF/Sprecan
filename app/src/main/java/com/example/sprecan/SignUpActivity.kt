@@ -34,8 +34,9 @@ class SignUpActivity : AuthenticationActivity() {
 
             var email: String = et_email.text.toString().trim { it <= ' ' }
             var password: String = et_password.text.toString().trim { it <= ' ' }
+            var name: String = et_name.text.toString()
 
-            registerUser(email, password)
+            registerUser(email, password, name)
 
         }
     }
