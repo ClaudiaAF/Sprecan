@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sprecan</string>
+    <string name="back"><![CDATA[<]]></string>
 </resources>

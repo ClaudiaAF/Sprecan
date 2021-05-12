@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar
 import com.example.sprecan.model.User
 import com.example.sprecan.utils.Constants
 import com.example.sprecan.utils.Firestore
+import kotlinx.android.synthetic.main.activity_chat_page.*
 
 
 class ChatPage : AppCompatActivity() {
@@ -20,6 +21,13 @@ class ChatPage : AppCompatActivity() {
         centerTitle();
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+
+        settings_fab.setOnClickListener {
+            val intent = Intent(this, SettingsPage::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
         //TODO: think about using shared preferences instead of getStringExtra
         val userId = intent.getStringExtra(Constants.LOGGED_IN_ID)
