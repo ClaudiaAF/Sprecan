@@ -1,17 +1,24 @@
 package com.example.sprecan.utils
 
+import android.content.Context
 import android.media.session.MediaSessionManager
+import android.util.Log
 import android.widget.Toast
 import com.example.sprecan.AuthenticationActivity
 import com.example.sprecan.ChatPage
 import com.example.sprecan.model.User
+import com.example.sprecan.recyclerView.PersonItem
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.SetOptions
+import com.xwray.groupie.kotlinandroidextensions.Item
 
 class Firestore {
 
     //initiate our firestore
     private val db = FirebaseFirestore.getInstance()
+
 
     //add user to firestore when they register
     fun registerUser(activity: AuthenticationActivity, userInfo: User){
@@ -49,5 +56,6 @@ class Firestore {
                     Toast.makeText(activity, exception.message, Toast.LENGTH_SHORT).show()
                 }
     }
+
 
 }
