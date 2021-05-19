@@ -8,10 +8,15 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import com.example.sprecan.model.User
 import com.example.sprecan.utils.Constants
 import com.example.sprecan.utils.Firestore
+import com.google.firebase.auth.FirebaseAuth.getInstance
 import kotlinx.android.synthetic.main.activity_chat_page.*
+import org.jetbrains.anko.clearTask
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.newTask
 
 
 class ChatPage : AppCompatActivity() {
@@ -37,6 +42,14 @@ class ChatPage : AppCompatActivity() {
             Firestore().getUserInfoById(this, userId)
         } else {
             startActivity(Intent(this, AuthenticationActivity::class.java))
+        }
+
+        btn_sign_out.setOnClickListener {
+            getInstance()
+                    .signOut()
+
+                        startActivity(intentFor<SignInActivity>().newTask().clearTask())
+
         }
 
     }
@@ -67,5 +80,13 @@ class ChatPage : AppCompatActivity() {
                 appCompatTextView.textAlignment = View.TEXT_ALIGNMENT_CENTER
             }
         }
+    }
+
+
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_layout, fragment)
+                .commit()
     }
 }
