@@ -29,13 +29,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://user-images.githubusercontent.com/64257497/118951076-11661f80-b95b-11eb-9244-a633ee8dcdd7.png "width="195" alt="logo" >
   </a>
 
-  <h3 align="center">RONA</h3>
+  <h3 align="center">Sprecan</h3>
 
   <p align="center">
-    Covid-19 Screening
+    Android Chat Application
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
