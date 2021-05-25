@@ -9,19 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".ChatPage"
-            android:theme="@style/Theme.Sprecan"></activity>
-        <activity android:name=".SettingsPage"></activity>
-        <activity
-            android:name=".SignInActivity"
-            android:screenOrientation="portrait">
+        <activity android:name=".UserAccount"></activity>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AuthenticationActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".ContactsActivity" />
+        <activity android:name=".ChatActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity android:name=".SettingsPage" />
+        <activity
+            android:name=".SignInActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
