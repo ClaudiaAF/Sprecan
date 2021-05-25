@@ -1,5 +1,6 @@
 package com.example.sprecan
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.widget.Button
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import kotlinx.android.synthetic.main.activity_sign_up.login_button
 import kotlinx.android.synthetic.main.layout_signinactvity.*
+import org.jetbrains.anko.design.longSnackbar
 
 class SignInActivity : AuthenticationActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
