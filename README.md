@@ -37,7 +37,7 @@
   <p align="center">
     Android Chat Application
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/claudiaAF/Sprecan"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/github_username/repo_name">View Demo</a>
@@ -67,7 +67,24 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#features-and-functions">Features and Functions</a></li>
+    <li>
+      <a href="#concept-process">Concept Process</a>
+      <ul>
+        <li><a href="#ideation">Ideation</a></li>
+        <li><a href="#wireframes">Wireframes</a></li>
+        <li><a href="#user-flow-diagrams">User-Flow Diagrams</a></li>
+        <li><a href="#database-erd">Database ERD</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#development-process">Development Process</a>
+      <ul>
+        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#peer-reviews">Peer Reviews</a></li>
+      </ul>
+    </li>
+    <li><a href="#video-demonstration">Video Demonstration</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -81,10 +98,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- add mockup here -->
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
+Sprecan is a medieval-inspired chat application. This app aims to bring a unique experience to those that use it.
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
 
 
