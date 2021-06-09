@@ -3,6 +3,7 @@ package com.example.sprecan
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.model.DatabaseId
@@ -18,7 +19,10 @@ class SignUpActivity : AuthenticationActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
 
         val signInHere_button = findViewById<Button>(R.id.signIn_button)

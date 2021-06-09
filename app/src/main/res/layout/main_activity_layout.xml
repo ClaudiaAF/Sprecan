@@ -8,6 +8,7 @@
     android:background="@color/dark_blue"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/dialogues_title"
         android:layout_width="221dp"
@@ -21,14 +22,14 @@
         app:srcCompat="@drawable/dialogues_title" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/user_profile_img"
+        android:id="@+id/user_profile_img_dash"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:adjustViewBounds="true"
         android:padding="10dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/default_user2"
+        android:src="@drawable/ic_baseline_person_24"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,83 +40,62 @@
         app:shapeAppearanceOverlay="@style/circleImageView"
         android:focusable="true" />
 
-    <!--    <com.google.android.material.imageview.ShapeableImageView-->
-    <!--        android:id="@+id/imageView2"-->
-    <!--        android:layout_width="91dp"-->
-    <!--        android:layout_height="86dp"-->
-    <!--        android:layout_gravity="center_horizontal"-->
-    <!--        android:adjustViewBounds="true"-->
-    <!--        android:padding="10dp"-->
-    <!--        android:scaleType="centerCrop"-->
-    <!--        android:src="@drawable/default_user"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.19"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.215"-->
-    <!--        app:shapeAppearanceOverlay="@style/circleImageView"-->
-    <!--        app:strokeColor="@color/golden"-->
-    <!--        app:strokeWidth="6dp" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="149dp"-->
-    <!--        android:layout_marginEnd="128dp"-->
-    <!--        android:text="User Name"-->
-    <!--        android:textAlignment="center"-->
-    <!--        android:textColor="@color/white"-->
-    <!--        android:textSize="18sp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="1.0"-->
-    <!--        app:layout_constraintStart_toStartOf="@+id/imageView2"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.21" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView2"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="150dp"-->
-    <!--        android:layout_marginEnd="132dp"-->
-    <!--        android:alpha="0.3"-->
-    <!--        android:text="Preview of Text"-->
-    <!--        android:textColor="#FFFFFF"-->
-    <!--        android:textSize="12sp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="1.0"-->
-    <!--        app:layout_constraintStart_toStartOf="@+id/imageView2"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.281" />-->
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_chats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="413dp"
+        android:layout_height="481dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialogues_title"
-        app:layout_constraintVertical_bias="0.093"
-        tools:layout_editor_absoluteX="0dp"/>
+        app:layout_constraintVertical_bias="0.174"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add_chat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/golden"
+        android:backgroundTint="@color/golden"
+        app:backgroundTint="@color/golden"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.928"
-        app:srcCompat="@drawable/scroll"
-        android:background="@color/golden"/>
+        app:srcCompat="@drawable/scroll" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:alpha="0.5"
+        android:text="Tap to alter"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view_chats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toEndOf="@+id/dialogues_title"
+        app:layout_constraintTop_toBottomOf="@+id/user_profile_img_dash"
+        app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:text="Engage in dialogue"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add_chat"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view_chats"
+        app:layout_constraintVertical_bias="0.563" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

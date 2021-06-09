@@ -67,29 +67,22 @@
             android:inputType="textPassword"
             android:id="@+id/et_loginPassword"
             app:boxStrokeColor="@color/dark_blue" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="252dp"
-        android:layout_height="56dp"
+        android:layout_width="262dp"
+        android:layout_height="61dp"
         android:backgroundTint="@color/dark_blue"
         android:text="Gain Acceptance"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.668" />
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="252dp"
-        android:layout_height="56dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.683" />
 
     <TextView
         android:id="@+id/noAccount_button"
