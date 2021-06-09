@@ -1,6 +1,7 @@
 package com.example.sprecan.utils
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import com.example.sprecan.AuthenticationActivity
@@ -25,6 +26,80 @@ class Firestore {
             "users/${FirebaseAuth.getInstance().uid
                 ?: throw NullPointerException("UID is null.")}"
         )
+
+    fun initCurrentUserIfFirstTime(onComplete: () -> Unit) {
+        currentUserDocRef.get().addOnSuccessListener { documentSnapshot ->
+            if (!documentSnapshot.exists()) {
+                val newUser = User(
+                    FirebaseAuth.getInstance().currentUser?.displayName ?: "",
+                    "", null
+                )
+                currentUserDocRef.set(newUser).addOnSuccessListener {
+                    onComplete()
+                }
+            } else
+                onComplete()
+        }
+    }
+
+    fun updateCurrentUser(name: String = "", profilePicturePath: String? = null) {
+        val userFieldMap = mutableMapOf<String, Any>()
+        if (name.isNotBlank()) userFieldMap["name"] = name
+
+        if (profilePicturePath != null) {
+            userFieldMap["profilePicturePath"] = profilePicturePath
+        }
+
+        updateChatProfilePictures(currentUserDocRef.id, profilePicturePath, name)
+        currentUserDocRef.update(userFieldMap)
+    }
+
+    fun updateChatProfilePictures(userUid: String, profilePicturePath: String?, name: String) {
+        val userFieldMap = mutableMapOf<String, Any>()
+
+        if (!profilePicturePath.isNullOrBlank())
+            userFieldMap["profilePicturePath"] = profilePicturePath
+
+        if (!name.isBlank())
+            userFieldMap["chatName"] = name
+
+        db.collection(Constants.USERS)
+            .whereNotEqualTo("id", userUid)
+            .get()
+            .addOnCompleteListener { usersTask ->
+                if (usersTask.isSuccessful) {
+                    val documents = usersTask.result?.documents
+
+                    documents?.forEach { userDoc ->
+                        db.collection(Constants.USERS)
+                            .document(userDoc.id)
+                            .collection(Constants.USER_CHATS)
+                            .whereEqualTo("contactId", userUid)
+                            .get()
+                            .addOnCompleteListener { userChatTask ->
+                                if (userChatTask.isSuccessful) {
+                                    val chatDocuments = userChatTask.result?.documents
+
+                                    chatDocuments?.forEach { chatDoc ->
+                                        db.collection(Constants.USERS)
+                                            .document(userDoc.id)
+                                            .collection(Constants.USER_CHATS)
+                                            .document(chatDoc.id)
+                                            .update(userFieldMap)
+                                    }
+                                }
+                            }
+                    }
+                }
+            }
+    }
+
+    fun getCurrentUser(onComplete: (User) -> Unit) {
+        currentUserDocRef.get()
+            .addOnSuccessListener {
+                onComplete(it.toObject(User::class.java)!!)
+            }
+    }
 
 
     //add user to firestore when they register
@@ -67,16 +142,12 @@ class Firestore {
             }
     }
 
-    fun updateCurrentUser(name: String = "", bio: String = "", profilePicturePath: String? = null) {
-        val userFieldMap = mutableMapOf<String, Any>()
-        if (name.isNotBlank()) userFieldMap["name"] = name
-        if (bio.isNotBlank()) userFieldMap["bio"] = bio
-        if (profilePicturePath != null)
-            userFieldMap["profilePicturePath"] = profilePicturePath
-        currentUserDocRef.update(userFieldMap)
-    }
 
-    fun getUserChats(userUid: String, onListen: (List<Item>) -> Unit): ListenerRegistration {
+    fun getUserChats(
+        context: Context,
+        userUid: String,
+        onListen: (List<Item>) -> Unit
+    ): ListenerRegistration {
         return db.collection(Constants.USERS)
             .document(userUid)
             .collection(Constants.USER_CHATS)
@@ -88,14 +159,18 @@ class Firestore {
 
                 val userChats = mutableListOf<Item>()
                 querySnapshot!!.documents.forEach {
-                    userChats.add(ChatItem(it.toObject(Chat::class.java)!!))
+                    userChats.add(ChatItem(it.toObject(Chat::class.java)!!, context))
                     return@forEach
                 }
                 onListen(userChats)
             }
     }
 
-    fun getContacts(userUid: String, onListen: (List<Item>) -> Unit): ListenerRegistration {
+    fun getContacts(
+        context: Context,
+        userUid: String,
+        onListen: (List<Item>) -> Unit
+    ): ListenerRegistration {
         return db.collection(Constants.USERS)
             .whereNotEqualTo("id", userUid)
             .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
@@ -106,7 +181,7 @@ class Firestore {
 
                 val contacts = mutableListOf<Item>()
                 querySnapshot!!.documents.forEach {
-                    contacts.add(ContactItem(it.toObject(User::class.java)!!))
+                    contacts.add(ContactItem(it.toObject(User::class.java)!!, context))
                     return@forEach
                 }
                 onListen(contacts)
@@ -118,7 +193,7 @@ class Firestore {
         db.collection(Constants.USERS)
             .document(userId)
             .get()
-            .addOnCompleteListener {task ->
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val document = task.result
                     onComplete(document!!.toObject(User::class.java)!!)
@@ -126,53 +201,6 @@ class Firestore {
             }
     }
 
-    fun getContactChat(userId: String, contactId: String, onComplete: (Chat?) -> Unit) {
-
-        db.collection(Constants.USERS)
-            .document(userId)
-            .collection(Constants.USER_CHATS)
-            .whereEqualTo("contactId", contactId)
-            .get()
-            .addOnSuccessListener { querySnapshot ->
-                if (querySnapshot.documents.isNotEmpty()) {
-                    onComplete(querySnapshot.documents.first().toObject(Chat::class.java)!!)
-                } else {
-                    onComplete(null)
-                }
-            }
-
-        onComplete(null)
-    }
-
-    fun createChat(currentUser: User, contactUser: User) {
-        val newChat = db.collection("chats").document()
-        newChat.set(mapOf("archive" to false))
-
-        db.collection(Constants.USERS)
-            .document(currentUser.id)
-            .collection(Constants.USER_CHATS)
-            .document()
-            .set(
-                mapOf(
-                    "chatId" to newChat.id,
-                    "chatName" to contactUser.name,
-                    "contactId" to contactUser.id
-                )
-            )
-
-        db.collection(Constants.USERS)
-            .document(contactUser.id)
-            .collection(Constants.USER_CHATS)
-            .document()
-            .set(
-                mapOf(
-                    "chatId" to newChat.id,
-                    "chatName" to currentUser.name,
-                    "contactId" to currentUser.id
-                )
-            )
-
-    }
 
     fun getChatMessages(chatId: String, onListen: (List<Item>) -> Unit): ListenerRegistration {
         return db.collection(Constants.MESSAGES)

@@ -31,8 +31,7 @@ open class AuthenticationActivity : BaseActivity() {
                                     val user = User(
                                             firebaseUser.uid,
                                             name,
-                                            email,
-                                            ""
+                                            profilePicturePath = null
                                     )
 
                                     //call firestore adding function

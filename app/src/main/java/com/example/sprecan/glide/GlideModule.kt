@@ -1,4 +1,4 @@
-package com.resocoder.firemessage.glide
+package com.example.sprecan.glide
 
 import android.content.Context
 import com.bumptech.glide.Glide
@@ -9,13 +9,10 @@ import com.firebase.ui.storage.images.FirebaseImageLoader
 import com.google.firebase.storage.StorageReference
 import java.io.InputStream
 
-
 @GlideModule
-class GlideModule: AppGlideModule() {
+class FireMessageGlideModule: AppGlideModule() {
     override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
         registry.append(StorageReference::class.java, InputStream::class.java,
-                FirebaseImageLoader.Factory())
+            FirebaseImageLoader.Factory())
     }
-
-
 }

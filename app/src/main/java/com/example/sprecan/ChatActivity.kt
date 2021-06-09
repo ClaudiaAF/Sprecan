@@ -1,15 +1,19 @@
 package com.example.sprecan
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sprecan.glide.GlideApp
 import com.example.sprecan.model.Chat
 import com.example.sprecan.model.Message
 import com.example.sprecan.model.User
 import com.example.sprecan.utils.Constants
 import com.example.sprecan.utils.Firestore
+import com.example.sprecan.utils.Storage
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
@@ -18,6 +22,7 @@ import com.xwray.groupie.Section
 import com.xwray.groupie.ViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.layout_chat_view.*
+import kotlinx.android.synthetic.main.main_activity_layout.*
 import java.util.*
 
 class ChatActivity : AppCompatActivity() {
@@ -33,11 +38,17 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_chat_view)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+
+
         val userId = intent.getStringExtra(Constants.LOGGED_IN_ID)
         val userName = intent.getStringExtra(Constants.USER_NAME)
         chatId = intent.getStringExtra(Constants.CHAT_ID)
         val contactId = intent.getStringExtra(Constants.CONTACT_ID)
+
 
         if (chatId != null) {
             messagesListenerRegistration =
@@ -94,7 +105,8 @@ class ChatActivity : AppCompatActivity() {
                                                                             mapOf(
                                                                                 "chatId" to documentReference.id,
                                                                                 "chatName" to contactUser!!.name,
-                                                                                "contactId" to contactUser!!.id
+                                                                                "contactId" to contactUser!!.id,
+                                                                                "profilePicturePath" to contactUser!!.profilePicturePath
                                                                             )
                                                                         )
 
@@ -106,7 +118,8 @@ class ChatActivity : AppCompatActivity() {
                                                                             mapOf(
                                                                                 "chatId" to documentReference.id,
                                                                                 "chatName" to currentUser!!.name,
-                                                                                "contactId" to currentUser!!.id
+                                                                                "contactId" to currentUser!!.id,
+                                                                                "profilePicturePath" to currentUser!!.profilePicturePath
                                                                             )
                                                                         )
                                                                     chatId = documentReference.id

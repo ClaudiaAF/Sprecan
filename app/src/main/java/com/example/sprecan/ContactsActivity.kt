@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sprecan.recyclerview.item.ChatItem
@@ -31,12 +32,15 @@ class ContactsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.contact_layout)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         userId = intent.getStringExtra(Constants.LOGGED_IN_ID)
 
         if (userId != null) {
-            contactListenerRegistration = Firestore().getContacts(userId!!, this::updateRecyclerView)
+            contactListenerRegistration = Firestore().getContacts(this, userId!!, this::updateRecyclerView)
         }
 
     }
