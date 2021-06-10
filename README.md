@@ -16,12 +16,10 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+![GitHub repo size](https://img.shields.io/github/repo-size/ClaudiaAF/Sprecan?color=%09054F)
+![GitHub watchers](https://img.shields.io/github/watchers/ClaudiaAF/Sprecan?color=%09054F)
+![GitHub language count](https://img.shields.io/github/languages/count/ClaudiaAF/Sprecan?color=%09054F)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ClaudiaAF/Sprecan?color=%09054F)
 
 
 
@@ -98,18 +96,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<!-- add mockup here -->
 
-Sprecan is a medieval-inspired chat application. This app aims to bring a unique experience to those that use it.
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+![mockup header](https://user-images.githubusercontent.com/64257497/121544302-e6c33000-ca09-11eb-8bce-00280f77ae9e.png)
+
+
+Sprecan is a medieval-inspired, closed-group chat application. This app aims to bring a unique experience to those that choose to utilise it.
 
 
 ### Built With
 
-* []()
-* []()
-* []()
-
+* [Android Studio](https://developer.android.com/studio)
+* [Kotlin](https://kotlinlang.org/)
+* [Firebase Firestore](https://firebase.google.com/)
 
 
 <!-- GETTING STARTED -->
@@ -119,39 +117,97 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Having the latest version of Android Studio installed on your PC will be required. Inclusion of the Kotlin plugin will also be needed.
+
 
 ### Installation
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
+1. Open Android Studio
+   Then navigate to `File` > `New` > `From Version Control` > `Git`
+  
+   
+2. Copy and paste my repo link `https://github.com/ClaudiaAF/Sprecan.git` into the URL field and continue to click the `Clone` option.
 
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Features and Functions
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Features
+* Users can securely login or create their own account
+* Validation is implemented to assist the user
+* The app remembers the users logged in session after closing and re-entering the app
+* The user can edit their profile image and name as they wish
+* Push notifications to display confirmation for when the user has saved their newly updated profile, and for when the user logs out
+* Users can chat with their companions
+* Companions list can be viewed
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Functions
+* `Recycler view` and `Groupie` was used for the list of companions, active chats and in the chat view
+* `Snackbar` was used for validation
+*  `Google authentication` was utilised for the sign in and sign up
+*  `Firebase firestore` was used for the backing `NOSQL database`
+*  `Constants` object for user details
+*  `Firebase Storage` was made use of for uploading profile images
+*  `Glide` was used to handle the image uploading
+*  `PushNotifications` were enabled
 
+## Concept Process
 
+### Ideation
+
+![Group 135](https://user-images.githubusercontent.com/64257497/121551128-a9fa3780-ca0f-11eb-9c77-c5f622158240.png)
+</br>
+![Group 134](https://user-images.githubusercontent.com/64257497/121551193-b8e0ea00-ca0f-11eb-9154-25d2a3865b55.png)
+</br>
+### Wireframes
+
+<img width="1920" alt="Group 137" src="https://user-images.githubusercontent.com/64257497/121552912-1f1a3c80-ca11-11eb-9383-9ae1bbf97203.png">
+
+### User Flow
+<img width="1928" alt="Group 139" src="https://user-images.githubusercontent.com/64257497/121553262-6b657c80-ca11-11eb-8d71-86ff99274e63.png">
+
+### Database ERD
+<img width="1920" alt="Group 142" src="https://user-images.githubusercontent.com/64257497/121553834-ef1f6900-ca11-11eb-9ada-5bb9bf282276.png">
+
+## Development Process
+
+### Implementation
+#### Challenges
+
+* Learning about Firebase and Firestore
+* Implementing Firebase with Kotlin
+* Understanding how to structure the database for the chat function
+* Implementing recycler views
+* Handling the image uploads for the profile image
+* All the chat logic and implementation
+
+### Peer Reviews
+
+#### Feedback
+* Everyone enjoyed the concept and theme
+* The colour scheme was complimented
+* Some text seemed illegible against the dark blue background
+* Accessing the profile was not clear
+* Creating a new chat was also not too obvious
+
+#### Future Changes
+* Add a group chat option
+* Show the latest message underneath the contacts name in the chats list
+* Enable push notifications for new messages instead
+
+## Mockups
+![Frame 3](https://user-images.githubusercontent.com/64257497/121555704-85a05a00-ca13-11eb-829f-91f066bee90d.png)
+![Frame 2](https://user-images.githubusercontent.com/64257497/121555727-8afda480-ca13-11eb-9854-88d6fb39b98c.png)
+![Frame 4](https://user-images.githubusercontent.com/64257497/121555734-8cc76800-ca13-11eb-8903-4081b4cfed44.png)
+
+## Video Demonstration
+[Click Here](https://github.com/github_username/repo_name/issues) to view the video demonstration of Sprecan
 
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
-
 
 
 <!-- CONTRIBUTING -->
@@ -177,9 +233,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+* **Claudia Ferreira** - 180181@virtualwindow.co.za
+* **Project Link** - https://github.com/ClaudiaAF/Sprecan.git
 
 
 
@@ -207,4 +262,4 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
 [license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+[linkedin-url]: https://linkedin.com/in/ClaudiaAF
