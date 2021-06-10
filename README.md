@@ -16,10 +16,10 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-![GitHub repo size](https://img.shields.io/github/repo-size/ClaudiaAF/Sprecan?color=%09054F)
-![GitHub watchers](https://img.shields.io/github/watchers/ClaudiaAF/Sprecan?color=%09054F)
-![GitHub language count](https://img.shields.io/github/languages/count/ClaudiaAF/Sprecan?color=%09054F)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ClaudiaAF/Sprecan?color=%09054F)
+![GitHub language count](https://img.shields.io/github/languages/count/ClaudiaAF/Sprecan?colorB=d0ac4b)
+![GitHub repo size](https://img.shields.io/github/repo-size/ClaudiaAF/Sprecan?colorB=d0ac4b)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ClaudiaAF/Sprecan?colorB=d0ac4b)
+![GitHub watchers](https://img.shields.io/github/watchers/ClaudiaAF/Sprecan?colorB=d0ac4b)
 
 
 
@@ -71,7 +71,7 @@
       <ul>
         <li><a href="#ideation">Ideation</a></li>
         <li><a href="#wireframes">Wireframes</a></li>
-        <li><a href="#user-flow-diagrams">User-Flow Diagrams</a></li>
+        <li><a href="#user-flow">User-Flow Diagrams</a></li>
         <li><a href="#database-erd">Database ERD</a></li>
       </ul>
     </li>
@@ -100,8 +100,14 @@
 ![mockup header](https://user-images.githubusercontent.com/64257497/121544302-e6c33000-ca09-11eb-8bce-00280f77ae9e.png)
 
 
-Sprecan is a medieval-inspired, closed-group chat application. This app aims to bring a unique experience to those that choose to utilise it.
-
+Communication has been around since the dawn of time, it constantly altered in linguisticss, dialects, and methods as the years went on. During these earlier days, communication between two people was valued very much. 
+</br>
+</br>
+Sending messages to someone of a far distance took much more effort and time, comparing this situation to current day is almost unfathomable.
+My idea thus came about of taking the value that communication used to hold and implementing that in a modern means of communication. 
+</br>
+</br>
+And so, Sprecan was born. Sprecan is a medieval-inspired, closed-group chat application. This app aims to bring the ancient value of communication into a modern technology.
 
 ### Built With
 
@@ -164,7 +170,7 @@ Having the latest version of Android Studio installed on your PC will be require
 
 <img width="1920" alt="Group 137" src="https://user-images.githubusercontent.com/64257497/121552912-1f1a3c80-ca11-11eb-9383-9ae1bbf97203.png">
 
-### User Flow
+### User-Flow
 <img width="1928" alt="Group 139" src="https://user-images.githubusercontent.com/64257497/121553262-6b657c80-ca11-11eb-8d71-86ff99274e63.png">
 
 ### Database ERD
@@ -202,7 +208,7 @@ Having the latest version of Android Studio installed on your PC will be require
 ![Frame 4](https://user-images.githubusercontent.com/64257497/121555734-8cc76800-ca13-11eb-8903-4081b4cfed44.png)
 
 ## Video Demonstration
-[Click Here](https://github.com/github_username/repo_name/issues) to view the video demonstration of Sprecan
+[Click Here](https://drive.google.com/file/d/1-ievpGxwskUznCHiUxSafsSu5_XjOndl/view?usp=sharing) to view the video demonstration of Sprecan
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -241,9 +247,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
+* [Kotlin documentation](https://kotlinlang.org/docs/home.html)
+* [Firebase documentation](https://firebase.google.com/docs/reference)
+* [Armand Pretorius](https://github.com/ArmandPretorius)
+* [Background image in sign in/sign up page](https://media.sciencephoto.com/c0/38/76/05/c0387605-800px-wm.jpg)
 
 
 
@@ -261,5 +268,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [issues-url]: https://github.com/github_username/repo/issues
 [license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
 [license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=d0ac4b
 [linkedin-url]: https://linkedin.com/in/ClaudiaAF
